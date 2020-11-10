@@ -20,3 +20,4 @@ If the right number of arguments are not given, then the program tells you to co
 If a file given doesn't exist, then its permissions are simply not printed, it does not check if one is the reverse of the other.
 It prints which files/directory does not exist/can't be opened.
 
+If the path of a directory is given in place of a path for a file, the program simply says that the file cant be opened, and continues.

@@ -115,11 +115,26 @@ int main(int argc, char **argv)
         one_does_not_exist=0;
     }
 
+    struct stat file1Stat;
+
+    int okay1 = stat(argv[1], &file1Stat);
+    if(okay1==0 && S_ISDIR(file1Stat.st_mode)){
+        one_does_not_exist = 0;
+    }
+
+
     int two_does_not_exist=1;
     int f_rev = open(argv[2], O_RDONLY); 
     if(f_rev<1){
         // perror("r2");
         two_does_not_exist=0;
+    }
+
+    struct stat file2Stat;
+
+    int okay2 = stat(argv[2], &file2Stat);
+    if(okay2==0 && S_ISDIR(file2Stat.st_mode)){
+        two_does_not_exist = 0;
     }
     // write(STDOUT_FILENO, "okaybro1\n", strlen("okaybro1\n"));
 
